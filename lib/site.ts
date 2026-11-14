@@ -78,8 +78,8 @@ export const site = {
       suburbs: ["Redland Bay", "Mount Cotton", "Sheldon"],
     },
     {
-      region: "Gold Coast",
-      suburbs: ["Southport", "Surfers Paradise", "Robina", "Burleigh Heads"],
+      region: "Gold Coast (North)",
+      suburbs: ["Yatala", "Ormeau", "Pimpama", "Coomera", "Upper Coomera"],
     },
   ],
   // Licensed and certified — displayed in a dedicated panel
