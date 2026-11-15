@@ -160,13 +160,18 @@ const socialLinks = [
   { href: site.social.googleMap, label: "Google Maps", Icon: MapIcon, show: hasMap },
 ] as const;
 
-const workGallery = [
-  { tag: "On-site regas", label: "Driveway service" },
-  { tag: "Workshop", label: "Compressor replacement" },
-  { tag: "Diagnostics", label: "Leak test + UV dye" },
-  { tag: "Mobile van", label: "Fully equipped unit" },
-  { tag: "Before / after", label: "Vent temp drop" },
-  { tag: "Happy customer", label: "Cold air restored" },
+// Photos pulled 2026-11-16 from Andy's own Google Business Profile
+// (By-owner filter). Full-size originals downsized to 1600px / 70% jpg.
+// Replace or re-order freely — just drop files into public/work/.
+const workGallery: { src: string; label: string; aspect?: string }[] = [
+  { src: "/work/p1.jpg", label: "On-site AC service" },
+  { src: "/work/p3.jpg", label: "Diagnostic in progress" },
+  { src: "/work/p4.jpg", label: "Mobile setup" },
+  { src: "/work/p5.jpg", label: "Workshop fit-out" },
+  { src: "/work/p6.jpg", label: "Gauge check" },
+  { src: "/work/p7.jpg", label: "Full repair job" },
+  { src: "/work/p8.jpg", label: "Cold air restored" },
+  { src: "/work/video-poster.jpg", label: "Video — see on Google" },
 ];
 
 export default function Home() {
@@ -616,7 +621,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Work gallery — photos/videos placeholder (moved up per competitor pattern) */}
+      {/* Work gallery — real photos from Andy's Google Business Profile */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex items-end justify-between flex-wrap gap-4">
           <div>
@@ -627,26 +632,43 @@ export default function Home() {
               Real work. Real cars. Real cold air.
             </h2>
           </div>
-        </div>
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
-          {workGallery.map((item, i) => (
-            <div
-              key={item.label}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 grid place-items-center text-center p-6"
-              style={{
-                borderColor: `${NAVY_FROM}22`,
-                background: `${NAVY_FROM}${i % 2 === 0 ? "06" : "0C"}`,
-                color: NAVY_TO,
-              }}
+          {site.social.googleMap && (
+            <a
+              href={site.social.googleMap}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border-2 bg-white px-5 py-2.5 text-sm font-black hover:shadow-lg transition"
+              style={{ borderColor: `${NAVY_FROM}22`, color: NAVY_TO }}
             >
-              <div>
-                <div className="text-xs font-black uppercase tracking-widest" style={{ color: NAVY_FROM }}>
-                  {item.tag}
-                </div>
-                <div className="mt-2 font-black uppercase">{item.label}</div>
-                <div className="mt-3 text-xs text-slate-400">photo / video coming</div>
-              </div>
-            </div>
+              <GoogleIcon className="h-5 w-5" />
+              See all on Google →
+            </a>
+          )}
+        </div>
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+          {workGallery.map((item) => (
+            <figure
+              key={item.src}
+              className="group relative aspect-square rounded-2xl overflow-hidden border-2"
+              style={{ borderColor: `${NAVY_FROM}22` }}
+            >
+              <Image
+                src={item.src}
+                alt={item.label}
+                fill
+                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                className="object-cover transition group-hover:scale-105"
+              />
+              <figcaption
+                className="absolute inset-x-0 bottom-0 p-3 text-[11px] font-black uppercase tracking-widest text-white"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(1,58,105,0.9) 0%, rgba(1,58,105,0) 100%)",
+                }}
+              >
+                {item.label}
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>
