@@ -41,12 +41,11 @@ export const site = {
   smsQuoteTemplate:
     "Hi Andy, I'd like a quote for my [car make/model/year] in [suburb]. What's your next available?",
   hours: [
-    { days: "Monday – Friday", time: "8:00 AM – 6:00 PM" },
-    { days: "Saturday – Sunday", time: "8:00 AM – 5:00 PM" },
+    { days: "Open 7 Days", time: "7:00 AM – 9:00 PM" },
   ],
   // Extended availability note shown separately on site
   extendedHours:
-    "Open 7 days. Can do 6:00 AM – 9:00 PM by booking — just call ahead.",
+    "Early starts and late finishes available by booking — just call ahead.",
   services: [
     {
       slug: "regas",
@@ -121,9 +120,9 @@ export const site = {
   // Licensed and certified — displayed in a dedicated panel
   credentials: [
     {
-      title: "ARCtick Certified",
-      detail: "Authorisation No. AU63933",
-      body: "Licensed by the Australian Refrigeration Council to handle automotive refrigerant.",
+      title: "ARC RTA Authorised",
+      detail: "No. AU63933",
+      body: "Refrigerant Trading Authorisation issued by the Australian Refrigeration Council.",
     },
     {
       title: "Refrigerant Handling Licence",

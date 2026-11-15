@@ -23,15 +23,17 @@ export function localBusinessJsonLd() {
   const openingHours = [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "18:00",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Saturday", "Sunday"],
-      opens: "08:00",
-      closes: "17:00",
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      ],
+      opens: "07:00",
+      closes: "21:00",
     },
   ];
 
@@ -83,7 +85,7 @@ export function localBusinessJsonLd() {
     hasCredential: [
       {
         "@type": "EducationalOccupationalCredential",
-        name: "ARCtick Certification",
+        name: "ARC Refrigerant Trading Authorisation",
         credentialCategory: "licence",
         identifier: "AU63933",
         recognizedBy: {

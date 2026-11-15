@@ -205,7 +205,7 @@ export default function Home() {
               }}
             >
               <CertIcon className="h-3 w-3" />
-              ARCtick {site.arcNumber}
+              ARC RTA No. {site.arcNumber}
             </div>
           </div>
           <a
@@ -400,7 +400,7 @@ export default function Home() {
                 </div>
                 <div className="min-w-0">
                   <div className="text-xs font-black uppercase tracking-widest" style={{ color: NAVY_FROM }}>
-                    ARCtick Authorised
+                    ARC RTA Authorised
                   </div>
                   <div className="text-base font-black tracking-tight">
                     {site.arcNumber}
@@ -712,7 +712,7 @@ export default function Home() {
                 Licensed &amp; Certified
               </div>
               <div className="mt-1 text-lg md:text-xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-                ARCtick authorised. Fully compliant.
+                ARC RTA authorised. Fully compliant.
               </div>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -921,7 +921,7 @@ export default function Home() {
           </div>
           <div className="text-blue-200 text-xs leading-relaxed">
             <div className="font-black text-white uppercase tracking-[0.2em] mb-1">Credentials</div>
-            ARCtick Authorisation AU63933 · Refrigerant Handling Licence · Refrigerant Trading Authorisation
+            ARC RTA No. AU63933 · Refrigerant Handling Licence · Refrigerant Trading Authorisation
           </div>
           <div className="md:text-right">
             <div className="font-black text-white uppercase tracking-[0.2em] text-xs mb-2">Find Us</div>
