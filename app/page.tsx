@@ -84,6 +84,41 @@ function CertIcon({ className = "" }) {
   );
 }
 
+// Service van side-profile, stylised to match the sticker palette.
+function VanIcon({ className = "" }) {
+  return (
+    <svg viewBox="0 0 64 40" className={className} fill="none" aria-hidden="true">
+      {/* body */}
+      <path
+        d="M4 10 L34 10 L44 10 L56 18 L60 20 L60 30 L56 30 L56 32 Q56 34 54 34 L48 34 Q46 34 46 32 L46 30 L22 30 L22 32 Q22 34 20 34 L14 34 Q12 34 12 32 L12 30 L4 30 Z"
+        fill="currentColor"
+      />
+      {/* windshield + door */}
+      <path d="M38 12 L52 20 L44 20 Q42 20 42 18 L42 12 Z" fill="#FFC400" stroke="#013A69" strokeWidth="1" />
+      <path d="M22 12 L36 12 L36 20 L22 20 Z" fill="#FFC400" stroke="#013A69" strokeWidth="1" />
+      {/* vent line on side */}
+      <rect x="6" y="20" width="14" height="4" fill="#013A69" opacity="0.4" />
+      {/* wheels */}
+      <circle cx="17" cy="32" r="4" fill="#0B0B0B" stroke="#FFC400" strokeWidth="1.5" />
+      <circle cx="51" cy="32" r="4" fill="#0B0B0B" stroke="#FFC400" strokeWidth="1.5" />
+      {/* motion lines */}
+      <g stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" opacity="0.6">
+        <line x1="0" y1="14" x2="4" y2="14" />
+        <line x1="0" y1="20" x2="4" y2="20" />
+        <line x1="0" y1="26" x2="4" y2="26" />
+      </g>
+    </svg>
+  );
+}
+
+function ArrowRight({ className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M13 5l7 7-7 7v-4H4v-6h9V5z" />
+    </svg>
+  );
+}
+
 const hasFb = !!site.social.facebook;
 const hasMessenger = !!site.social.messenger;
 const hasIg = !!site.social.instagram;
@@ -163,15 +198,21 @@ export default function Home() {
               Open 7 Days · 6 AM – 9 PM by booking
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight leading-[1.02] uppercase">
-              Cold air back,
+              We Drive To
               <br />
-              <span style={{ color: YELLOW }}>on-site in 45 minutes.</span>
+              Your Driveway.
             </h1>
+            <div
+              className="mt-5 text-2xl md:text-3xl font-black uppercase tracking-tight"
+              style={{ color: YELLOW }}
+            >
+              Cold air back in 45 minutes.
+            </div>
             <p className="mt-6 text-lg text-blue-100 max-w-xl leading-relaxed">
-              Mobile car AC regas, diagnostics and repair across Brisbane,
-              Logan, Greenbank, Redland Bay and Gold Coast. We come to you —
-              driveway, workplace, anywhere a car parks. Same-day drop-off and
-              pick-up available for full AC repairs.
+              Fully mobile car AC regas, diagnostics and repair across Brisbane,
+              Logan, Greenbank, Redland Bay and the northern Gold Coast. No tow,
+              no drop-off — we come to your driveway, workplace or roadside.
+              Same-day fix for full AC repairs when you book ahead.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -219,6 +260,32 @@ export default function Home() {
                 sizes="(max-width: 768px) 60vw, 320px"
                 className="object-contain rounded-full"
               />
+              {/* Mobile Service stamp — rotated badge overlapping top-right */}
+              <div
+                className="absolute -top-3 -right-3 md:-top-4 md:-right-4 rotate-[-12deg]"
+                aria-hidden="true"
+              >
+                <div
+                  className="relative h-28 w-28 md:h-32 md:w-32 rounded-full grid place-items-center text-center shadow-xl"
+                  style={{
+                    background: YELLOW,
+                    boxShadow: `inset 0 0 0 3px ${NAVY_TO}, inset 0 0 0 5px ${YELLOW}, inset 0 0 0 7px ${NAVY_TO}, 0 10px 30px rgba(0,0,0,0.25)`,
+                    color: NAVY_TO,
+                  }}
+                >
+                  <div className="leading-none">
+                    <div className="text-[9px] font-black tracking-[0.3em]">★ ★ ★</div>
+                    <div className="mt-1.5 text-sm md:text-base font-black uppercase leading-[1.05]">
+                      Mobile
+                      <br />
+                      Service
+                    </div>
+                    <div className="mt-1.5 text-[10px] font-black uppercase tracking-[0.25em]">
+                      7 Days
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -227,6 +294,105 @@ export default function Home() {
           className="relative h-3"
           style={{ background: `linear-gradient(90deg, ${YELLOW_LIGHT} 0%, ${YELLOW} 50%, ${YELLOW_DARK} 100%)` }}
         />
+      </section>
+
+      {/* How it works — 3-step mobile flow */}
+      <section
+        className="relative"
+        style={{ background: `${NAVY_FROM}08` }}
+      >
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="text-center">
+            <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
+              How It Works
+            </div>
+            <h2 className="mt-2 text-2xl md:text-3xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+              Three steps. Cold air today.
+            </h2>
+          </div>
+          <div className="mt-10 grid md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-6 md:gap-4 items-stretch">
+            {/* Step 1 — Call */}
+            <div
+              className="rounded-2xl p-6 bg-white border-2 flex items-start gap-4"
+              style={{ borderColor: `${NAVY_FROM}22` }}
+            >
+              <div
+                className="shrink-0 h-14 w-14 rounded-xl grid place-items-center"
+                style={{ background: YELLOW, color: NAVY_TO }}
+              >
+                <PhoneIcon className="h-6 w-6" />
+              </div>
+              <div>
+                <div className="text-[10px] font-black tracking-[0.3em] uppercase" style={{ color: NAVY_FROM }}>
+                  Step 01
+                </div>
+                <div className="mt-1 text-lg font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+                  Call Andy
+                </div>
+                <div className="mt-1 text-sm text-slate-600 leading-relaxed">
+                  Tap <span className="italic font-semibold">{site.phone}</span>. Tell us the car and
+                  the suburb — quote and arrival window on the spot.
+                </div>
+              </div>
+            </div>
+            {/* Arrow 1 */}
+            <div className="hidden md:grid place-items-center" style={{ color: NAVY_FROM }}>
+              <ArrowRight className="h-7 w-7 opacity-50" />
+            </div>
+            {/* Step 2 — Van arrives */}
+            <div
+              className="rounded-2xl p-6 bg-white border-2 flex items-start gap-4"
+              style={{ borderColor: `${NAVY_FROM}22` }}
+            >
+              <div
+                className="shrink-0 h-14 w-14 rounded-xl grid place-items-center"
+                style={{ background: YELLOW, color: NAVY_TO }}
+              >
+                <VanIcon className="h-7 w-10" />
+              </div>
+              <div>
+                <div className="text-[10px] font-black tracking-[0.3em] uppercase" style={{ color: NAVY_FROM }}>
+                  Step 02
+                </div>
+                <div className="mt-1 text-lg font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+                  Van Rolls Out
+                </div>
+                <div className="mt-1 text-sm text-slate-600 leading-relaxed">
+                  Fully equipped mobile unit. Driveway, workplace, roadside — anywhere
+                  the car is parked.
+                </div>
+              </div>
+            </div>
+            {/* Arrow 2 */}
+            <div className="hidden md:grid place-items-center" style={{ color: NAVY_FROM }}>
+              <ArrowRight className="h-7 w-7 opacity-50" />
+            </div>
+            {/* Step 3 — Cold air */}
+            <div
+              className="rounded-2xl p-6 bg-white border-2 flex items-start gap-4"
+              style={{ borderColor: `${NAVY_FROM}22` }}
+            >
+              <div
+                className="shrink-0 h-14 w-14 rounded-xl grid place-items-center"
+                style={{ background: YELLOW, color: NAVY_TO }}
+              >
+                <Snowflake size={28} opacity={1} />
+              </div>
+              <div>
+                <div className="text-[10px] font-black tracking-[0.3em] uppercase" style={{ color: NAVY_FROM }}>
+                  Step 03
+                </div>
+                <div className="mt-1 text-lg font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+                  Cold Air Back
+                </div>
+                <div className="mt-1 text-sm text-slate-600 leading-relaxed">
+                  Most regas jobs done in 30–45 minutes on site. Full repairs same-day
+                  by booking.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Services */}
