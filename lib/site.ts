@@ -11,9 +11,33 @@ export const site = {
   // Google Reviews — set count > 0 to show the numeric rating card.
   // If count is 0 the UI falls back to a "Read our reviews" link without numbers.
   googleReviews: {
-    rating: 0,   // e.g. 4.9
-    count: 0,    // e.g. 42
+    rating: 5.0,
+    count: 8,
   },
+  // Real quotes pulled from the live Google Business Profile 2026-11-16.
+  testimonials: [
+    {
+      author: "Christian Rasmussen",
+      meta: "7 reviews · 3 photos",
+      stars: 5,
+      quote:
+        "I can't recommend Andy highly enough! Andy came out to regas the air conditioning on my car.",
+    },
+    {
+      author: "Ivy Lin",
+      meta: "Local Guide · 23 reviews",
+      stars: 5,
+      quote:
+        "Andy was very professional and knowledgeable. With over 10 years of experience in car diagnostics, he knew his stuff.",
+    },
+    {
+      author: "badgi barra",
+      meta: "2 reviews",
+      stars: 5,
+      quote:
+        "Andy was very professional and thorough. Even though I was at work he communicated very well with me.",
+    },
+  ],
   smsQuoteTemplate:
     "Hi Andy, I'd like a quote for my [car make/model/year] in [suburb]. What's your next available?",
   hours: [
