@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { site, telHref, COPYRIGHT_YEAR } from "@/lib/site";
+import { site, telHref, smsQuoteHref, COPYRIGHT_YEAR } from "@/lib/site";
 
 export const metadata = { title: site.tagline };
 
@@ -56,6 +56,35 @@ function MessengerIcon({ className = "" }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
       <path d="M12 2C6.4 2 2 6.2 2 11.5c0 2.8 1.3 5.3 3.4 7V22l3.1-1.7c.9.3 1.8.4 2.8.4a10 10 0 0 0 1.3-.1h.4c5.3 0 9.5-4 9.5-9.1S17.4 2 12 2zm1 12.2L10.4 11 5 14.2 11 8l2.6 3.2L19 8l-6 6.2z" />
+    </svg>
+  );
+}
+
+// Chat bubble for the Quick SMS Quote CTA.
+function ChatIcon({ className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M4 3h16a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H9l-5 4V5a2 2 0 0 1 2-2zm3 6v2h10V9H7zm0 4v2h7v-2H7z" />
+    </svg>
+  );
+}
+
+function StarIcon({ className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8l-6.2 3.3L7 14.2 2 9.3l6.9-1L12 2z" />
+    </svg>
+  );
+}
+
+// Google "G" logo (simplified monochrome — safe for a credibility badge).
+function GoogleIcon({ className = "" }) {
+  return (
+    <svg viewBox="0 0 48 48" className={className} aria-hidden="true">
+      <path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3 0 5.8 1.1 8 3l5.7-5.7C33.9 6 29.2 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.2-2.6-.4-3.5z" />
+      <path fill="#FF3D00" d="M6.3 14.1l6.6 4.8c1.8-4.3 6-7.4 10.9-7.4 3 0 5.8 1.1 8 3L37.6 9C33.9 6 29.2 4 24 4 16.3 4 9.7 8.3 6.3 14.1z" />
+      <path fill="#4CAF50" d="M24 44c5.2 0 9.8-2 13.4-5.2L31.2 33c-2 1.3-4.5 2-7.2 2-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.6 39.6 16.2 44 24 44z" />
+      <path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.3-2.2 4.3-4.1 5.8l6.2 5.2c-.4.4 6.6-4.8 6.6-14 0-1.3-.2-2.6-.4-3.5z" />
     </svg>
   );
 }
@@ -148,17 +177,17 @@ export default function Home() {
         className="text-white"
         style={{ background: `linear-gradient(90deg, ${NAVY_FROM} 0%, ${NAVY_TO} 100%)` }}
       >
-        <div className="mx-auto max-w-6xl flex items-center justify-between px-5 py-3">
-          <div className="flex items-center gap-3">
+        <div className="mx-auto max-w-6xl flex items-center justify-between px-5 py-3 gap-3">
+          <div className="flex items-center gap-3 min-w-0">
             <Image
               src="/brand/logo-circle-sm.png"
               alt="Andy Auto AC Regas"
               width={44}
               height={44}
               priority
-              className="rounded-full bg-white"
+              className="rounded-full bg-white shrink-0"
             />
-            <div className="hidden sm:block">
+            <div className="hidden sm:block min-w-0">
               <div className="font-black italic tracking-wide leading-none">
                 ANDY AUTO AC REGAS
               </div>
@@ -166,10 +195,22 @@ export default function Home() {
                 Mobile · Brisbane · Logan · Gold Coast · 7 Days
               </div>
             </div>
+            {/* ARC licence pill — highest-value trust signal per competitor research */}
+            <div
+              className="hidden md:inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-black uppercase tracking-widest ml-2 shrink-0"
+              style={{
+                background: "rgba(255,196,0,0.15)",
+                color: YELLOW,
+                boxShadow: `inset 0 0 0 1px ${YELLOW}80`,
+              }}
+            >
+              <CertIcon className="h-3 w-3" />
+              ARCtick {site.arcNumber}
+            </div>
           </div>
           <a
             href={telHref}
-            className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-black text-[#013A69] shadow"
+            className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-black text-[#013A69] shadow shrink-0"
             style={{ background: YELLOW }}
           >
             <PhoneIcon className="h-4 w-4" />
@@ -190,12 +231,20 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-6xl px-6 py-20 md:py-28 grid md:grid-cols-5 gap-10 items-center text-white">
           <div className="md:col-span-3">
-            <div
-              className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#013A69]"
-              style={{ background: YELLOW }}
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-[#013A69]" />
-              Open 7 Days · 6 AM – 9 PM by booking
+            <div className="flex flex-wrap items-center gap-2">
+              <div
+                className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#013A69]"
+                style={{ background: YELLOW }}
+              >
+                <span className="h-1.5 w-1.5 rounded-full bg-[#013A69]" />
+                {site.yearsInBusiness}+ Years · Owner-Operated by {site.ownerFirstName}
+              </div>
+              <div
+                className="inline-flex items-center gap-2 rounded-full border-2 px-3 py-0.5 text-xs font-bold uppercase tracking-widest"
+                style={{ borderColor: `${YELLOW}70`, color: YELLOW }}
+              >
+                Open 7 Days · 6 AM – 9 PM
+              </div>
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight leading-[1.02] uppercase">
               We Drive To
@@ -223,6 +272,13 @@ export default function Home() {
                 <PhoneIcon className="h-5 w-5" />
                 <span>Call <span className="italic">{site.phone}</span></span>
               </a>
+              <a
+                href={smsQuoteHref}
+                className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 px-6 py-3 font-bold hover:bg-white/10 transition"
+              >
+                <ChatIcon className="h-5 w-5" />
+                Quick SMS Quote
+              </a>
               {(hasMessenger || hasFb) && (
                 <a
                   href={site.social.messenger || site.social.facebook}
@@ -231,7 +287,7 @@ export default function Home() {
                   className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 px-6 py-3 font-bold hover:bg-white/10 transition"
                 >
                   <MessengerIcon className="h-5 w-5" />
-                  Message on Facebook
+                  Message on FB
                 </a>
               )}
             </div>
@@ -251,36 +307,131 @@ export default function Home() {
             </div>
           </div>
           <div className="md:col-span-2 relative">
-            <div className="relative mx-auto aspect-square max-w-xs rounded-full bg-white p-2 shadow-2xl shadow-black/20">
-              <Image
-                src="/brand/logo-circle.png"
-                alt="Andy Auto AC Regas"
-                fill
-                priority
-                sizes="(max-width: 768px) 60vw, 320px"
-                className="object-contain rounded-full"
-              />
-              {/* Mobile Service stamp — rotated badge overlapping top-right */}
+            {/* Trust stack — social proof + years + ARC. Will be swapped for a
+                real photo of Andy/the van once Andy sends work shots. */}
+            <div className="relative space-y-3">
+              {/* Google Reviews card */}
+              {site.social.googleMap && (
+                <a
+                  href={site.social.googleMap}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block rounded-2xl bg-white p-5 shadow-xl hover:shadow-2xl transition"
+                  style={{ color: NAVY_TO }}
+                >
+                  <div className="flex items-center gap-3">
+                    <GoogleIcon className="h-9 w-9" />
+                    <div className="flex-1">
+                      <div className="text-xs font-black uppercase tracking-widest" style={{ color: NAVY_FROM }}>
+                        Google Reviews
+                      </div>
+                      {site.googleReviews.count > 0 ? (
+                        <div className="flex items-baseline gap-2">
+                          <span className="text-2xl font-black">
+                            {site.googleReviews.rating}
+                          </span>
+                          <div className="flex" style={{ color: "#FFC107" }}>
+                            {[0, 1, 2, 3, 4].map((i) => (
+                              <StarIcon key={i} className="h-4 w-4" />
+                            ))}
+                          </div>
+                          <span className="text-sm opacity-70">
+                            ({site.googleReviews.count})
+                          </span>
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-1" style={{ color: "#FFC107" }}>
+                          {[0, 1, 2, 3, 4].map((i) => (
+                            <StarIcon key={i} className="h-4 w-4" />
+                          ))}
+                          <span className="ml-1 text-sm font-semibold" style={{ color: NAVY_TO }}>
+                            Verified
+                          </span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                  <div className="mt-3 text-sm font-semibold flex items-center gap-1" style={{ color: NAVY_FROM }}>
+                    Read our reviews on Google →
+                  </div>
+                </a>
+              )}
+
+              {/* 10+ years hero number */}
               <div
-                className="absolute -top-3 -right-3 md:-top-4 md:-right-4 rotate-[-12deg]"
+                className="relative rounded-2xl overflow-hidden p-5 text-white shadow-xl"
+                style={{
+                  background: `linear-gradient(135deg, ${NAVY_FROM} 0%, ${NAVY_TO} 100%)`,
+                  boxShadow: `inset 0 0 0 1px ${YELLOW}30, 0 10px 30px rgba(0,0,0,0.25)`,
+                }}
+              >
+                <div className="absolute -right-4 -bottom-6 opacity-10">
+                  <Snowflake size={140} opacity={1} />
+                </div>
+                <div className="relative flex items-center gap-5">
+                  <div
+                    className="text-5xl md:text-6xl font-black leading-none"
+                    style={{ color: YELLOW }}
+                  >
+                    {site.yearsInBusiness}+
+                  </div>
+                  <div>
+                    <div className="text-sm font-black uppercase tracking-widest">
+                      Years Mobile
+                    </div>
+                    <div className="text-xs text-blue-100 mt-1 leading-relaxed">
+                      Owner-operated by {site.ownerFirstName}.<br />
+                      Same technician every visit.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* ARC credential tile */}
+              <div
+                className="rounded-2xl bg-white p-4 shadow-xl flex items-center gap-4"
+                style={{ color: NAVY_TO, boxShadow: `inset 0 0 0 2px ${YELLOW}` }}
+              >
+                <div
+                  className="h-11 w-11 rounded-full grid place-items-center shrink-0"
+                  style={{ background: YELLOW, color: NAVY_TO }}
+                >
+                  <CertIcon className="h-6 w-6" />
+                </div>
+                <div className="min-w-0">
+                  <div className="text-xs font-black uppercase tracking-widest" style={{ color: NAVY_FROM }}>
+                    ARCtick Authorised
+                  </div>
+                  <div className="text-base font-black tracking-tight">
+                    {site.arcNumber}
+                  </div>
+                  <div className="text-xs text-slate-600">
+                    Licensed to handle automotive refrigerant.
+                  </div>
+                </div>
+              </div>
+
+              {/* Rotated MOBILE SERVICE stamp as a corner accent */}
+              <div
+                className="absolute -top-5 -right-3 rotate-[-12deg] pointer-events-none"
                 aria-hidden="true"
               >
                 <div
-                  className="relative h-28 w-28 md:h-32 md:w-32 rounded-full grid place-items-center text-center shadow-xl"
+                  className="relative h-24 w-24 rounded-full grid place-items-center text-center"
                   style={{
                     background: YELLOW,
-                    boxShadow: `inset 0 0 0 3px ${NAVY_TO}, inset 0 0 0 5px ${YELLOW}, inset 0 0 0 7px ${NAVY_TO}, 0 10px 30px rgba(0,0,0,0.25)`,
+                    boxShadow: `inset 0 0 0 3px ${NAVY_TO}, inset 0 0 0 5px ${YELLOW}, inset 0 0 0 6px ${NAVY_TO}, 0 10px 24px rgba(0,0,0,0.3)`,
                     color: NAVY_TO,
                   }}
                 >
                   <div className="leading-none">
                     <div className="text-[9px] font-black tracking-[0.3em]">★ ★ ★</div>
-                    <div className="mt-1.5 text-sm md:text-base font-black uppercase leading-[1.05]">
+                    <div className="mt-1 text-xs font-black uppercase leading-[1.05]">
                       Mobile
                       <br />
                       Service
                     </div>
-                    <div className="mt-1.5 text-[10px] font-black uppercase tracking-[0.25em]">
+                    <div className="mt-1 text-[9px] font-black uppercase tracking-[0.2em]">
                       7 Days
                     </div>
                   </div>
@@ -395,6 +546,41 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Work gallery — photos/videos placeholder (moved up per competitor pattern) */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
+        <div className="flex items-end justify-between flex-wrap gap-4">
+          <div>
+            <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
+              On the Job
+            </div>
+            <h2 className="mt-2 text-3xl md:text-4xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+              Real work. Real cars. Real cold air.
+            </h2>
+          </div>
+        </div>
+        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
+          {workGallery.map((item, i) => (
+            <div
+              key={item.label}
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 grid place-items-center text-center p-6"
+              style={{
+                borderColor: `${NAVY_FROM}22`,
+                background: `${NAVY_FROM}${i % 2 === 0 ? "06" : "0C"}`,
+                color: NAVY_TO,
+              }}
+            >
+              <div>
+                <div className="text-xs font-black uppercase tracking-widest" style={{ color: NAVY_FROM }}>
+                  {item.tag}
+                </div>
+                <div className="mt-2 font-black uppercase">{item.label}</div>
+                <div className="mt-3 text-xs text-slate-400">photo / video coming</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Services */}
       <section className="mx-auto max-w-6xl px-6 py-20">
         <div className="flex items-end justify-between flex-wrap gap-4">
@@ -447,46 +633,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Credentials */}
-      <section
-        className="relative overflow-hidden"
-        style={{ background: `${NAVY_FROM}08` }}
-      >
-        <div className="mx-auto max-w-6xl px-6 py-16">
-          <div className="flex items-end justify-between flex-wrap gap-4">
+      {/* Credentials — compact strip (ARC already in top bar) */}
+      <section style={{ background: `${NAVY_FROM}08` }}>
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <div className="flex items-center justify-between flex-wrap gap-6">
             <div>
               <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
                 Licensed &amp; Certified
               </div>
-              <h2 className="mt-2 text-3xl md:text-4xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-                Fully compliant automotive AC technician.
-              </h2>
-              <p className="mt-3 text-slate-600 max-w-2xl">
-                Only ARCtick-authorised technicians can legally handle automotive
-                refrigerant in Australia. Your car is in the right hands.
-              </p>
-            </div>
-          </div>
-          <div className="mt-10 grid md:grid-cols-3 gap-5">
-            {site.credentials.map((c) => (
-              <div
-                key={c.title}
-                className="rounded-2xl p-7 bg-white border-2"
-                style={{ borderColor: `${NAVY_FROM}22` }}
-              >
-                <div
-                  className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-black text-[#013A69] mb-4"
-                  style={{ background: YELLOW }}
-                >
-                  <CertIcon className="h-3.5 w-3.5" />
-                  {c.detail}
-                </div>
-                <h3 className="text-lg font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-                  {c.title}
-                </h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">{c.body}</p>
+              <div className="mt-1 text-lg md:text-xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+                ARCtick authorised. Fully compliant.
               </div>
-            ))}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {site.credentials.map((c) => (
+                <div
+                  key={c.title}
+                  className="inline-flex items-center gap-2 rounded-full bg-white border-2 px-4 py-2 text-xs md:text-sm"
+                  style={{ borderColor: `${NAVY_FROM}22`, color: NAVY_TO }}
+                  title={c.body}
+                >
+                  <span style={{ color: NAVY_FROM, display: "inline-flex" }}>
+                    <CertIcon className="h-4 w-4" />
+                  </span>
+                  <span className="font-black uppercase tracking-wider">{c.title}</span>
+                  <span className="text-[11px] opacity-70">· {c.detail}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -526,41 +700,6 @@ export default function Home() {
           className="h-3"
           style={{ background: `linear-gradient(90deg, ${YELLOW_LIGHT} 0%, ${YELLOW} 50%, ${YELLOW_DARK} 100%)` }}
         />
-      </section>
-
-      {/* Work gallery — photos/videos placeholder */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
-        <div className="flex items-end justify-between flex-wrap gap-4">
-          <div>
-            <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
-              On the Job
-            </div>
-            <h2 className="mt-2 text-3xl md:text-4xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-              Real work. Real cars. Real cold air.
-            </h2>
-          </div>
-        </div>
-        <div className="mt-10 grid grid-cols-2 md:grid-cols-3 gap-4">
-          {workGallery.map((item, i) => (
-            <div
-              key={item.label}
-              className="relative aspect-[4/3] rounded-2xl overflow-hidden border-2 grid place-items-center text-center p-6"
-              style={{
-                borderColor: `${NAVY_FROM}22`,
-                background: `${NAVY_FROM}${i % 2 === 0 ? "06" : "0C"}`,
-                color: NAVY_TO,
-              }}
-            >
-              <div>
-                <div className="text-xs font-black uppercase tracking-widest" style={{ color: NAVY_FROM }}>
-                  {item.tag}
-                </div>
-                <div className="mt-2 font-black uppercase">{item.label}</div>
-                <div className="mt-3 text-xs text-slate-400">photo / video coming</div>
-              </div>
-            </div>
-          ))}
-        </div>
       </section>
 
       {/* Areas */}

@@ -4,6 +4,18 @@ export const site = {
   tagline: "Professional Mobile AC Regas Service in Brisbane, Logan & Gold Coast",
   phone: "0478 701 289",
   phoneDigits: "0478701289",
+  // Trust signals the owner wants reinforced above the fold.
+  arcNumber: "AU63933",
+  yearsInBusiness: 10,
+  ownerFirstName: "Andy",
+  // Google Reviews — set count > 0 to show the numeric rating card.
+  // If count is 0 the UI falls back to a "Read our reviews" link without numbers.
+  googleReviews: {
+    rating: 0,   // e.g. 4.9
+    count: 0,    // e.g. 42
+  },
+  smsQuoteTemplate:
+    "Hi Andy, I'd like a quote for my [car make/model/year] in [suburb]. What's your next available?",
   hours: [
     { days: "Monday – Friday", time: "8:00 AM – 6:00 PM" },
     { days: "Saturday – Sunday", time: "8:00 AM – 5:00 PM" },
@@ -110,4 +122,5 @@ export const site = {
 } as const;
 
 export const telHref = `tel:+61${site.phoneDigits.slice(1)}`;
+export const smsQuoteHref = `sms:+61${site.phoneDigits.slice(1)}?&body=${encodeURIComponent(site.smsQuoteTemplate)}`;
 export const COPYRIGHT_YEAR = 2026;
