@@ -252,7 +252,7 @@ export default function Home() {
                 className="inline-flex items-center gap-2 rounded-full border-2 px-3 py-0.5 text-xs font-bold uppercase tracking-widest"
                 style={{ borderColor: `${YELLOW}70`, color: YELLOW }}
               >
-                Open 7 Days · 6 AM – 9 PM
+                Open 7 Days · 7 AM – 9 PM
               </div>
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight leading-[1.02] uppercase">
@@ -386,7 +386,7 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="text-sm font-black uppercase tracking-widest">
-                      Years Mobile
+                      Years Mechanic
                     </div>
                     <div className="text-xs text-blue-100 mt-1 leading-relaxed">
                       Owner-operated by {site.ownerFirstName}.<br />
@@ -515,10 +515,10 @@ export default function Home() {
                   Step 02
                 </div>
                 <div className="mt-1 text-lg font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-                  Van Rolls Out
+                  Wagon Rolls Out
                 </div>
                 <div className="mt-1 text-sm text-slate-600 leading-relaxed">
-                  Fully equipped mobile unit. Driveway, workplace, roadside — anywhere
+                  Fully equipped service wagon. Driveway, workplace, roadside — anywhere
                   the car is parked.
                 </div>
               </div>
@@ -551,6 +551,70 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Andy — owner background and value prop */}
+      <section
+        className="relative overflow-hidden"
+        style={{ background: `${NAVY_FROM}08` }}
+      >
+        <div className="absolute -top-6 -right-6" style={{ color: NAVY_FROM }}>
+          <Snowflake size={160} opacity={0.05} />
+        </div>
+        <div className="mx-auto max-w-6xl px-6 py-16 grid md:grid-cols-5 gap-10 items-start">
+          <div className="md:col-span-3">
+            <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
+              About Andy
+            </div>
+            <h2 className="mt-2 text-3xl md:text-4xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+              {site.ownerBio.headline}
+            </h2>
+            <div
+              className="mt-2 text-lg md:text-xl font-black uppercase tracking-tight"
+              style={{ color: NAVY_FROM }}
+            >
+              {site.ownerBio.subhead}
+            </div>
+            <div className="mt-5 space-y-4 text-slate-700 leading-relaxed">
+              {site.ownerBio.paragraphs.map((p, i) => (
+                <p key={i}>{p}</p>
+              ))}
+            </div>
+            <a
+              href={telHref}
+              className="mt-6 inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-black text-[#013A69] hover:brightness-105 transition"
+              style={{ background: YELLOW }}
+            >
+              <PhoneIcon className="h-4 w-4" />
+              Book direct with Andy
+            </a>
+          </div>
+          <div className="md:col-span-2 grid grid-cols-2 gap-3">
+            {site.ownerBio.pillars.map((p) => (
+              <div
+                key={p.title}
+                className="rounded-2xl bg-white border-2 p-4"
+                style={{ borderColor: `${NAVY_FROM}22` }}
+              >
+                <div className="flex items-center gap-2" style={{ color: NAVY_FROM }}>
+                  <CertIcon className="h-4 w-4" />
+                  <span className="text-[10px] font-black uppercase tracking-[0.25em]">
+                    Pillar
+                  </span>
+                </div>
+                <div
+                  className="mt-2 text-base font-black uppercase tracking-tight"
+                  style={{ color: NAVY_TO }}
+                >
+                  {p.title}
+                </div>
+                <div className="mt-1 text-xs text-slate-600 leading-relaxed">
+                  {p.body}
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -853,7 +917,7 @@ export default function Home() {
             </h2>
             <p className="mt-4 opacity-80 max-w-md">
               Call Andy — you&apos;ll get a time window and a price before the
-              van rolls out.
+              wagon rolls out.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
