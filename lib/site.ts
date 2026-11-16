@@ -43,7 +43,7 @@ export const site = {
   // Owner background — "About Andy" section.
   ownerBio: {
     headline: "Meet Andy.",
-    subhead: "Audi-certified technician. 10+ years under the bonnet.",
+    subhead: "Audi-certified diagnostic technician. 10+ years under the bonnet.",
     paragraphs: [
       "Most of Andy's career was at Audi dealerships as a certified technician — the gold standard for precision diagnostics and electrical work.",
       "Two years ago he went out on his own, bringing dealership-level tools and training to your driveway. Same expertise, mobile schedule.",
@@ -51,7 +51,7 @@ export const site = {
       "The goal is simple: fix the car properly and tell you exactly what it needs. Nothing more.",
     ],
     pillars: [
-      { title: "Audi Certified", body: "Years of dealership-level training" },
+      { title: "Audi Certified Technician", body: "Years of dealership-level experience" },
       { title: "10+ Years", body: "Full-time automotive technician" },
       { title: "Owner-Operator", body: "No middlemen, no commission" },
       { title: "Transparent Pricing", body: "Quote first, fix after" },
