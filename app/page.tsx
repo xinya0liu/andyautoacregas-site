@@ -649,19 +649,6 @@ export default function Home() {
             </a>
           )}
         </div>
-        {/* Branded banner strip under the heading — "We come to you" */}
-        <div
-          className="mt-6 relative rounded-2xl overflow-hidden border-2 aspect-[21/8]"
-          style={{ borderColor: `${NAVY_FROM}22` }}
-        >
-          <Image
-            src="/work-fb/00-banner.jpg"
-            alt="Mobile Car Aircon Regas — we come to you, same day. Regas from $140."
-            fill
-            sizes="(max-width: 768px) 100vw, 1200px"
-            className="object-cover"
-          />
-        </div>
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {workGallery.map((item) => (
             <figure
