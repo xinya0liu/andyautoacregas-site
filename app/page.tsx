@@ -160,17 +160,21 @@ const socialLinks = [
   { href: site.social.googleMap, label: "Google Maps", Icon: MapIcon, show: hasMap },
 ] as const;
 
-// Photos pulled 2026-11-16 from Andy's own Google Business Profile
-// (By-owner filter). Full-size originals downsized to 1600px / 70% jpg.
-// Replace or re-order freely — just drop files into public/work/.
-const workGallery: { src: string; label: string; aspect?: string }[] = [
-  { src: "/work/p1.jpg", label: "On-site AC service" },
-  { src: "/work/p3.jpg", label: "Diagnostic in progress" },
-  { src: "/work/p4.jpg", label: "Mobile setup" },
-  { src: "/work/p5.jpg", label: "Workshop fit-out" },
-  { src: "/work/p6.jpg", label: "Gauge check" },
-  { src: "/work/p7.jpg", label: "Full repair job" },
-  { src: "/work/p8.jpg", label: "Cold air restored" },
+// Photos curated 2026-11-16 from Andy's FB work-log posts + 1 Google video
+// still. Files in public/work-fb/ (FB) and public/work/ (Google). Replace or
+// re-order freely — just drop new files into public/work-fb/.
+const workGallery: { src: string; label: string }[] = [
+  { src: "/work-fb/01-ranger-driveway.jpg", label: "Ford Ranger · driveway" },
+  { src: "/work-fb/02-commodore.jpg", label: "Holden Commodore" },
+  { src: "/work-fb/03-temp-5c.jpg", label: "Vent temp · 5.0°C" },
+  { src: "/work-fb/04-mazda-clean.jpg", label: "Mazda CX-5" },
+  { src: "/work-fb/05-mercedes.jpg", label: "Mercedes-Benz" },
+  { src: "/work-fb/06-ford-van.jpg", label: "Ford van" },
+  { src: "/work-fb/07-hilux-driveway.jpg", label: "Toyota Hilux · driveway" },
+  { src: "/work-fb/08-temp-7c-kia.jpg", label: "Vent temp · 7.6°C" },
+  { src: "/work-fb/09-vw-driveway.jpg", label: "VW · driveway" },
+  { src: "/work-fb/10-gauges-detail.jpg", label: "Manifold gauges" },
+  { src: "/work-fb/11-temp-7c-toyota.jpg", label: "Vent temp · 7.1°C" },
   { src: "/work/video-poster.jpg", label: "Video — see on Google" },
 ];
 
@@ -621,7 +625,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Work gallery — real photos from Andy's Google Business Profile */}
+      {/* Work gallery — curated from FB work-log posts + Google */}
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex items-end justify-between flex-wrap gap-4">
           <div>
@@ -632,18 +636,31 @@ export default function Home() {
               Real work. Real cars. Real cold air.
             </h2>
           </div>
-          {site.social.googleMap && (
+          {site.social.facebook && (
             <a
-              href={site.social.googleMap}
+              href={site.social.facebook}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 rounded-full border-2 bg-white px-5 py-2.5 text-sm font-black hover:shadow-lg transition"
               style={{ borderColor: `${NAVY_FROM}22`, color: NAVY_TO }}
             >
-              <GoogleIcon className="h-5 w-5" />
-              See all on Google →
+              <FacebookIcon className="h-5 w-5" />
+              See more on Facebook →
             </a>
           )}
+        </div>
+        {/* Branded banner strip under the heading — "We come to you" */}
+        <div
+          className="mt-6 relative rounded-2xl overflow-hidden border-2 aspect-[21/8]"
+          style={{ borderColor: `${NAVY_FROM}22` }}
+        >
+          <Image
+            src="/work-fb/00-banner.jpg"
+            alt="Mobile Car Aircon Regas — we come to you, same day. Regas from $140."
+            fill
+            sizes="(max-width: 768px) 100vw, 1200px"
+            className="object-cover"
+          />
         </div>
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {workGallery.map((item) => (
