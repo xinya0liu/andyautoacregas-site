@@ -581,7 +581,7 @@ export default function Home() {
               </div>
               {/* Rotated "That's Andy" badge over the photo */}
               <div
-                className="absolute -top-3 -right-3 rotate-[-10deg]"
+                className="absolute -top-7 -right-3 md:-top-8 md:-right-4 rotate-[-10deg]"
                 aria-hidden="true"
               >
                 <div
