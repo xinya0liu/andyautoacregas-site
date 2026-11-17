@@ -46,7 +46,7 @@ export const site = {
     subhead: "Audi-certified diagnostic technician. 10+ years under the bonnet.",
     paragraphs: [
       "Most of Andy's career was at Audi dealerships as a certified technician — the gold standard for precision diagnostics and electrical work.",
-      "Two years ago he went out on his own, bringing dealership-level tools and training to your driveway. Same expertise, mobile schedule.",
+      "Two years ago he went out on his own, bringing dealership-level tools and experience to your driveway. Same expertise, mobile schedule.",
       "No rent, no front desk, no sales commission — owner is the operator. That keeps overhead low, and the savings go to you.",
       "The goal is simple: fix the car properly and tell you exactly what it needs. Nothing more.",
     ],
