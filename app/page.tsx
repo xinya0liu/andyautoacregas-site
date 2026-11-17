@@ -252,16 +252,10 @@ export default function Home() {
               <br />
               AC Regas.
             </h1>
-            <div
-              className="mt-5 text-2xl md:text-3xl font-black uppercase tracking-tight"
-              style={{ color: YELLOW }}
-            >
-              Cold air back on your driveway — in 45 minutes.
-            </div>
             <p className="mt-6 text-lg text-blue-100 max-w-xl leading-relaxed">
               Fully mobile car AC regas, diagnostics and repair across Brisbane,
-              Logan and the northern Gold Coast. No tow, no drop-off — we come
-              to your driveway, workplace or roadside.
+              Logan and the northern Gold Coast. We come to your driveway,
+              workplace or roadside.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
