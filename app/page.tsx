@@ -492,8 +492,8 @@ export default function Home() {
               <p className="mt-3 text-slate-600 leading-relaxed">{s.blurb}</p>
               <a
                 href={smsQuoteHref}
-                className="mt-5 inline-flex items-center gap-2 font-black hover:gap-3 transition-all"
-                style={{ color: NAVY_FROM }}
+                className="mt-5 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-black text-[#013A69] shadow-md hover:brightness-105 hover:shadow-lg transition w-full"
+                style={{ background: YELLOW }}
               >
                 <ChatIcon className="h-4 w-4" />
                 Text to book · <span className="italic">{site.phone}</span>
