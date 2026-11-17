@@ -180,7 +180,7 @@ const workGallery: { src: string; label: string; video?: boolean }[] = [
   { src: "/work-fb/02-commodore.jpg", label: "Holden Commodore" },
   { src: "/work-fb/14-camry-street.jpg", label: "Toyota Camry · street-side" },
   { src: "/work-fb/03-temp-5c.jpg", label: "Vent temp · 5.0°C" },
-  { src: "/work-fb/16-interior-wiring.jpg", label: "Beyond regas · interior wiring" },
+  { src: "/work-fb/16-interior-wiring.jpg", label: "Beyond regas · electrical fix" },
   { src: "/work-fb/04-mazda-clean.jpg", label: "Mazda CX-5" },
   { src: "/work-fb/05-mercedes.jpg", label: "Mercedes-Benz" },
   { src: "/work-fb/06-ford-van.jpg", label: "Ford van" },
