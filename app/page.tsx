@@ -304,8 +304,8 @@ export default function Home() {
             {/* Hero visual — real work photo = instant "mobile ac regas" proof */}
             <div className="relative">
               <div
-                className="relative aspect-[4/5] rounded-3xl overflow-hidden border-4 shadow-2xl shadow-black/40"
-                style={{ borderColor: YELLOW }}
+                className="relative aspect-[3/4] rounded-3xl overflow-hidden border-4 shadow-2xl shadow-black/40"
+                style={{ borderColor: YELLOW, background: NAVY_TO }}
               >
                 <Image
                   src="/work-fb/hero-andy-working.jpg"
@@ -314,6 +314,7 @@ export default function Home() {
                   priority
                   sizes="(max-width: 768px) 80vw, 400px"
                   className="object-cover"
+                  style={{ objectPosition: "50% 80%" }}
                 />
               </div>
               {/* Rotated MOBILE SERVICE stamp as a corner accent */}
