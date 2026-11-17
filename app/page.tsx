@@ -173,9 +173,14 @@ const socialLinks = [
 // re-order freely — just drop new files into public/work-fb/.
 const workGallery: { src: string; label: string; video?: boolean }[] = [
   { src: "/work/andy-voiceover.mp4", label: "Watch Andy's 30-second mobile AC regas", video: true },
+  { src: "/work-fb/12-full-kit-boot.jpg", label: "The mobile kit — gauges, vacuum, R134a" },
+  { src: "/work-fb/15-crv-logan-driveway.jpg", label: "On the driveway · Logan" },
   { src: "/work-fb/01-ranger-driveway.jpg", label: "Ford Ranger · driveway" },
+  { src: "/work-fb/13-red-car-cylinder.jpg", label: "Refill in progress" },
   { src: "/work-fb/02-commodore.jpg", label: "Holden Commodore" },
+  { src: "/work-fb/14-camry-street.jpg", label: "Toyota Camry · street-side" },
   { src: "/work-fb/03-temp-5c.jpg", label: "Vent temp · 5.0°C" },
+  { src: "/work-fb/16-interior-wiring.jpg", label: "Beyond regas · interior wiring" },
   { src: "/work-fb/04-mazda-clean.jpg", label: "Mazda CX-5" },
   { src: "/work-fb/05-mercedes.jpg", label: "Mercedes-Benz" },
   { src: "/work-fb/06-ford-van.jpg", label: "Ford van" },
