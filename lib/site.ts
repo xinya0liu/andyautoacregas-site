@@ -14,28 +14,49 @@ export const site = {
     rating: 5.0,
     count: 8,
   },
-  // Real quotes pulled from the live Google Business Profile 2026-11-16.
+  // Full-text quotes pulled from the live Google Business Profile 2026-11-17.
   testimonials: [
     {
       author: "Christian Rasmussen",
-      meta: "7 reviews · 3 photos",
+      meta: "a month ago · Google",
       stars: 5,
       quote:
-        "I can't recommend Andy highly enough! Andy came out to regas the air conditioning on my car.",
+        "I can't recommend Andy highly enough! Andy came out to regas the air conditioning in my Ford Ranger PX2 and diagnosed a leak that required a new pipe. While waiting for the part to arrive, I got him to regas the AC in my Subaru Forester, and honestly, he did a phenomenal job! The AC in my 26-year-old Subaru is now absolutely icy cold! 🥶\n\nA week later, once the new pipe arrived, Andy installed it and regassed the AC in my Ranger, and now that's blowing ice-cold air too!\n\nAndy's communication is excellent, his response time is quick, and you can tell he takes real pride in his work. It's great to find someone who genuinely cares about doing the job properly.\n\nIf you're looking for someone reliable who knows his stuff, I highly recommend Andy. I'll definitely be using him again. Thanks, Andy, for the awesome work! 👏",
+    },
+    {
+      author: "Vince",
+      meta: "a month ago · Google",
+      stars: 5,
+      quote:
+        "Look no further to get your AC system sorted!\nI had Andy drop by today, fix the leaks, and regas the system on my car. He was very professional, explained the whole process well, and you can really see the pride he takes in his work.\nEnd result is ice cold AC—better than it has ever been.\nThanks again Andy",
+    },
+    {
+      author: "Fiona Schipke",
+      meta: "a month ago · Google",
+      stars: 5,
+      quote:
+        "Andy communicated clearly through the whole process. He explained and showed me what was wrong in a way I understood. I felt Andy to be very genuine and he went above and beyond by also fixing a couple of small but annoying issues with my car.\n\nI will be highly recommending Andy to family and friends.",
     },
     {
       author: "Ivy Lin",
-      meta: "Local Guide · 23 reviews",
+      meta: "Local Guide · a month ago · Google",
       stars: 5,
       quote:
-        "Andy was very professional and knowledgeable. With over 10 years of experience in car diagnostics, he knew his stuff.",
+        "Andy was very professional and knowledgeable. With over 10 years of experience in car diagnostics, he doesn't just fix your air conditioning he also gives helpful advice about general car maintenance.\n\nReally happy with the service and I'll definitely use Andy again. Highly recommend!",
+    },
+    {
+      author: "Nicole Henry",
+      meta: "a month ago · Google",
+      stars: 5,
+      quote:
+        "Andy was great, super efficient in response times and booking in a time to get our aircon done. Realised we had to replace some parts and he was straight into it and was fixed within 4 days. Highly recommend if you ever need aircon maintenance done ☺️",
     },
     {
       author: "badgi barra",
-      meta: "2 reviews",
+      meta: "a month ago · Google",
       stars: 5,
       quote:
-        "Andy was very professional and thorough. Even though I was at work he communicated very well with me.",
+        "Andy was very professional and thorough. Even though I was at work he communicated very well with me about what needed to be done. Very happy with my cold aircon once again.",
     },
   ],
   smsQuoteTemplate:

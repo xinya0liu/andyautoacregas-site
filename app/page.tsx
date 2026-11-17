@@ -69,6 +69,14 @@ function ChatIcon({ className = "" }) {
   );
 }
 
+function PlayIcon({ className = "" }) {
+  return (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
+      <path d="M8 5v14l11-7L8 5z" />
+    </svg>
+  );
+}
+
 function StarIcon({ className = "" }) {
   return (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor" aria-hidden="true">
@@ -163,19 +171,19 @@ const socialLinks = [
 // Photos curated 2026-11-16 from Andy's FB work-log posts + 1 Google video
 // still. Files in public/work-fb/ (FB) and public/work/ (Google). Replace or
 // re-order freely — just drop new files into public/work-fb/.
-const workGallery: { src: string; label: string }[] = [
+const workGallery: { src: string; label: string; video?: boolean }[] = [
   { src: "/work-fb/01-ranger-driveway.jpg", label: "Ford Ranger · driveway" },
   { src: "/work-fb/02-commodore.jpg", label: "Holden Commodore" },
   { src: "/work-fb/03-temp-5c.jpg", label: "Vent temp · 5.0°C" },
   { src: "/work-fb/04-mazda-clean.jpg", label: "Mazda CX-5" },
   { src: "/work-fb/05-mercedes.jpg", label: "Mercedes-Benz" },
   { src: "/work-fb/06-ford-van.jpg", label: "Ford van" },
+  { src: "/work/video-poster.jpg", label: "Watch the 23-second job on Google", video: true },
   { src: "/work-fb/07-hilux-driveway.jpg", label: "Toyota Hilux · driveway" },
   { src: "/work-fb/08-temp-7c-kia.jpg", label: "Vent temp · 7.6°C" },
   { src: "/work-fb/09-vw-driveway.jpg", label: "VW · driveway" },
   { src: "/work-fb/10-gauges-detail.jpg", label: "Manifold gauges" },
   { src: "/work-fb/11-temp-7c-toyota.jpg", label: "Vent temp · 7.1°C" },
-  { src: "/work/video-poster.jpg", label: "Video — see on Google" },
 ];
 
 export default function Home() {
@@ -435,6 +443,55 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Services — moved up: visitors want to know what you offer before how it works */}
+      <section className="mx-auto max-w-6xl px-6 py-20">
+        <div className="flex items-end justify-between flex-wrap gap-4">
+          <div>
+            <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
+              Services
+            </div>
+            <h2 className="mt-2 text-3xl md:text-4xl font-black tracking-tight uppercase" style={{ color: NAVY_TO }}>
+              Upfront pricing. No surprises.
+            </h2>
+          </div>
+          <a
+            href={telHref}
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2 font-black text-[#013A69] hover:brightness-105 transition"
+            style={{ background: YELLOW }}
+          >
+            <PhoneIcon className="h-4 w-4" />
+            Book now
+          </a>
+        </div>
+        <div className="mt-10 grid md:grid-cols-3 gap-5">
+          {site.services.map((s) => (
+            <article
+              key={s.slug}
+              className="relative rounded-2xl p-7 border-2 transition hover:-translate-y-1 hover:shadow-xl"
+              style={{ borderColor: `${NAVY_FROM}18` }}
+            >
+              <div
+                className="absolute -top-3 left-6 inline-block rounded-full px-3 py-1 text-xs font-black text-[#013A69]"
+                style={{ background: YELLOW }}
+              >
+                {s.price}
+              </div>
+              <h3 className="mt-4 text-2xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+                {s.name}
+              </h3>
+              <p className="mt-3 text-slate-600 leading-relaxed">{s.blurb}</p>
+              <a
+                href={telHref}
+                className="mt-5 inline-flex items-center gap-1 font-black hover:gap-2 transition-all"
+                style={{ color: NAVY_FROM }}
+              >
+                Book this → <span className="italic">{site.phone}</span>
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
       {/* How it works — 3-step mobile flow */}
       <section
         className="relative"
@@ -646,75 +703,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials — real Google reviews */}
-      <section className="mx-auto max-w-6xl px-6 py-16">
-        <div className="flex items-end justify-between flex-wrap gap-4">
-          <div>
-            <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
-              What customers say
-            </div>
-            <h2 className="mt-2 text-3xl md:text-4xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-              5.0 stars on Google.
-            </h2>
-          </div>
-          {site.social.googleMap && (
-            <a
-              href={site.social.googleMap}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border-2 bg-white px-5 py-2.5 text-sm font-black hover:shadow-lg transition"
-              style={{ borderColor: `${NAVY_FROM}22`, color: NAVY_TO }}
-            >
-              <GoogleIcon className="h-5 w-5" />
-              Read all Google reviews
-              <span>→</span>
-            </a>
-          )}
-        </div>
-        <div className="mt-10 grid md:grid-cols-3 gap-5">
-          {site.testimonials.map((t) => (
-            <figure
-              key={t.author}
-              className="relative rounded-2xl bg-white p-6 border-2 flex flex-col"
-              style={{ borderColor: `${NAVY_FROM}22` }}
-            >
-              <div className="flex items-center gap-1" style={{ color: "#FFC107" }}>
-                {Array.from({ length: t.stars }).map((_, i) => (
-                  <StarIcon key={i} className="h-4 w-4" />
-                ))}
-              </div>
-              <blockquote
-                className="mt-4 text-slate-700 leading-relaxed flex-1"
-                style={{ color: NAVY_TO }}
-              >
-                “{t.quote}”
-              </blockquote>
-              <figcaption className="mt-6 pt-4 border-t border-slate-200 flex items-center gap-3">
-                <div
-                  className="h-10 w-10 rounded-full grid place-items-center font-black text-sm shrink-0"
-                  style={{ background: `${NAVY_FROM}10`, color: NAVY_FROM }}
-                >
-                  {t.author
-                    .split(" ")
-                    .map((w) => w[0])
-                    .join("")
-                    .slice(0, 2)
-                    .toUpperCase()}
-                </div>
-                <div className="min-w-0">
-                  <div className="font-black uppercase tracking-tight text-sm" style={{ color: NAVY_TO }}>
-                    {t.author}
-                  </div>
-                  <div className="text-xs text-slate-500">
-                    <GoogleIcon className="inline-block h-3 w-3 mr-1 align-[-2px]" />
-                    {t.meta}
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
-          ))}
-        </div>
-      </section>
 
       {/* Work gallery — curated from FB work-log posts + Google */}
       <section className="mx-auto max-w-6xl px-6 py-16">
@@ -741,111 +729,121 @@ export default function Home() {
           )}
         </div>
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
-          {workGallery.map((item) => (
-            <figure
-              key={item.src}
-              className="group relative aspect-square rounded-2xl overflow-hidden border-2"
-              style={{ borderColor: `${NAVY_FROM}22` }}
-            >
-              <Image
-                src={item.src}
-                alt={item.label}
-                fill
-                sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover transition group-hover:scale-[1.03]"
-              />
-            </figure>
-          ))}
+          {workGallery.map((item) =>
+            item.video ? (
+              <a
+                key={item.src}
+                href={site.social.googleMap || "#"}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={item.label}
+                className="group relative col-span-2 aspect-video rounded-2xl overflow-hidden border-2 block"
+                style={{ borderColor: YELLOW }}
+              >
+                <Image
+                  src={item.src}
+                  alt={item.label}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover transition group-hover:scale-[1.03]"
+                />
+                <div className="absolute inset-0 grid place-items-center bg-black/25">
+                  <div
+                    className="h-16 w-16 md:h-20 md:w-20 rounded-full grid place-items-center shadow-xl transition group-hover:scale-105"
+                    style={{ background: YELLOW, color: NAVY_TO }}
+                  >
+                    <PlayIcon className="h-7 w-7 md:h-9 md:w-9 ml-1" />
+                  </div>
+                </div>
+              </a>
+            ) : (
+              <figure
+                key={item.src}
+                className="group relative aspect-square rounded-2xl overflow-hidden border-2"
+                style={{ borderColor: `${NAVY_FROM}22` }}
+              >
+                <Image
+                  src={item.src}
+                  alt={item.label}
+                  fill
+                  sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                  className="object-cover transition group-hover:scale-[1.03]"
+                />
+              </figure>
+            )
+          )}
         </div>
       </section>
 
-      {/* Services */}
-      <section className="mx-auto max-w-6xl px-6 py-20">
+      {/* Testimonials — full-text Google reviews (moved after gallery: show → tell) */}
+      <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="flex items-end justify-between flex-wrap gap-4">
           <div>
             <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
-              Services
+              What customers say
             </div>
-            <h2 className="mt-2 text-3xl md:text-4xl font-black tracking-tight uppercase" style={{ color: NAVY_TO }}>
-              Upfront pricing. No surprises.
+            <h2 className="mt-2 text-3xl md:text-4xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+              5.0 stars on Google.
             </h2>
           </div>
-          <a
-            href={telHref}
-            className="inline-flex items-center gap-2 rounded-full px-5 py-2 font-black text-[#013A69] hover:brightness-105 transition"
-            style={{ background: YELLOW }}
-          >
-            <PhoneIcon className="h-4 w-4" />
-            Book now
-          </a>
-        </div>
-        <div className="mt-10 grid md:grid-cols-3 gap-5">
-          {site.services.map((s, i) => (
-            <article
-              key={s.slug}
-              className="relative rounded-2xl p-7 border-2 transition hover:-translate-y-1 hover:shadow-xl"
-              style={{ borderColor: `${NAVY_FROM}18` }}
+          {site.social.googleMap && (
+            <a
+              href={site.social.googleMap}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border-2 bg-white px-5 py-2.5 text-sm font-black hover:shadow-lg transition"
+              style={{ borderColor: `${NAVY_FROM}22`, color: NAVY_TO }}
             >
-              <div
-                className="absolute -top-3 left-6 inline-block rounded-full px-3 py-1 text-xs font-black text-[#013A69]"
-                style={{ background: YELLOW }}
-              >
-                {s.price}
+              <GoogleIcon className="h-5 w-5" />
+              Read on Google
+              <span>→</span>
+            </a>
+          )}
+        </div>
+        {/* Masonry via CSS columns so variable-height cards sit flush */}
+        <div className="mt-10 columns-1 md:columns-2 lg:columns-3 gap-5 [column-fill:_balance]">
+          {site.testimonials.map((t) => (
+            <figure
+              key={t.author}
+              className="relative rounded-2xl bg-white p-6 border-2 mb-5 break-inside-avoid"
+              style={{ borderColor: `${NAVY_FROM}22` }}
+            >
+              <div className="flex items-center gap-1" style={{ color: "#FFC107" }}>
+                {Array.from({ length: t.stars }).map((_, i) => (
+                  <StarIcon key={i} className="h-4 w-4" />
+                ))}
               </div>
-              <div className="mt-2 text-xs font-black tracking-[0.3em]" style={{ color: NAVY_FROM }}>
-                0{i + 1}
-              </div>
-              <h3 className="mt-1 text-2xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-                {s.name}
-              </h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">{s.blurb}</p>
-              <a
-                href={telHref}
-                className="mt-5 inline-flex items-center gap-1 font-black hover:gap-2 transition-all"
-                style={{ color: NAVY_FROM }}
+              <blockquote
+                className="mt-4 text-slate-700 leading-relaxed whitespace-pre-line"
+                style={{ color: NAVY_TO }}
               >
-                Book this → <span className="italic">{site.phone}</span>
-              </a>
-            </article>
+                {t.quote}
+              </blockquote>
+              <figcaption className="mt-6 pt-4 border-t border-slate-200 flex items-center gap-3">
+                <div
+                  className="h-10 w-10 rounded-full grid place-items-center font-black text-sm shrink-0"
+                  style={{ background: `${NAVY_FROM}10`, color: NAVY_FROM }}
+                >
+                  {t.author
+                    .split(" ")
+                    .map((w) => w[0])
+                    .join("")
+                    .slice(0, 2)
+                    .toUpperCase()}
+                </div>
+                <div className="min-w-0">
+                  <div className="font-black uppercase tracking-tight text-sm" style={{ color: NAVY_TO }}>
+                    {t.author}
+                  </div>
+                  <div className="text-xs text-slate-500">
+                    <GoogleIcon className="inline-block h-3 w-3 mr-1 align-[-2px]" />
+                    {t.meta}
+                  </div>
+                </div>
+              </figcaption>
+            </figure>
           ))}
         </div>
-      </section>
-
-      {/* Why */}
-      <section
-        className="relative overflow-hidden text-white"
-        style={{ background: `linear-gradient(135deg, ${NAVY_FROM} 0%, ${NAVY_TO} 100%)` }}
-      >
-        <div className="absolute -top-10 -right-10 text-white"><Snowflake size={240} opacity={0.06} /></div>
-        <div className="absolute bottom-0 left-20 text-white"><Snowflake size={140} opacity={0.05} /></div>
-        <div className="relative mx-auto max-w-6xl px-6 py-20">
-          <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: YELLOW }}>
-            Why Andy
-          </div>
-          <h2 className="mt-2 text-3xl md:text-4xl font-black uppercase tracking-tight max-w-2xl">
-            Qualified. Mobile. Honest about pricing.
-          </h2>
-          <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-10">
-            {site.benefits.map((b, i) => (
-              <div key={b.title}>
-                <div
-                  className="h-11 w-11 rounded-full grid place-items-center font-black text-[#013A69]"
-                  style={{ background: YELLOW }}
-                >
-                  {String(i + 1).padStart(2, "0")}
-                </div>
-                <h3 className="mt-4 text-lg font-black uppercase tracking-tight">
-                  {b.title}
-                </h3>
-                <p className="mt-2 text-blue-100 leading-relaxed">{b.body}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div
-          className="h-3"
-          style={{ background: `linear-gradient(90deg, ${YELLOW_LIGHT} 0%, ${YELLOW} 50%, ${YELLOW_DARK} 100%)` }}
-        />
       </section>
 
       {/* Areas */}
