@@ -240,37 +240,28 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-6xl px-6 py-20 md:py-28 grid md:grid-cols-5 gap-10 items-center text-white">
           <div className="md:col-span-3">
-            <div className="flex flex-wrap items-center gap-2">
-              <div
-                className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#013A69]"
-                style={{ background: YELLOW }}
-              >
-                <span className="h-1.5 w-1.5 rounded-full bg-[#013A69]" />
-                {site.yearsInBusiness}+ Years · Owner-Operated by {site.ownerFirstName}
-              </div>
-              <div
-                className="inline-flex items-center gap-2 rounded-full border-2 px-3 py-0.5 text-xs font-bold uppercase tracking-widest"
-                style={{ borderColor: `${YELLOW}70`, color: YELLOW }}
-              >
-                Open 7 Days · 7 AM – 9 PM
-              </div>
+            <div
+              className="inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#013A69]"
+              style={{ background: YELLOW }}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-[#013A69]" />
+              Mobile Service · Open 7 Days · ARC RTA AU63933
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight leading-[1.02] uppercase">
-              We Drive To
+              Mobile Car
               <br />
-              Your Driveway.
+              AC Regas.
             </h1>
             <div
               className="mt-5 text-2xl md:text-3xl font-black uppercase tracking-tight"
               style={{ color: YELLOW }}
             >
-              Cold air back in 45 minutes.
+              Cold air back on your driveway — in 45 minutes.
             </div>
             <p className="mt-6 text-lg text-blue-100 max-w-xl leading-relaxed">
               Fully mobile car AC regas, diagnostics and repair across Brisbane,
-              Logan, Greenbank, Redland Bay and the northern Gold Coast. No tow,
-              no drop-off — we come to your driveway, workplace or roadside.
-              Same-day fix for full AC repairs when you book ahead.
+              Logan and the northern Gold Coast. No tow, no drop-off — we come
+              to your driveway, workplace or roadside.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -316,114 +307,28 @@ export default function Home() {
             </div>
           </div>
           <div className="md:col-span-2 relative">
-            {/* Trust stack — social proof + years + ARC. Will be swapped for a
-                real photo of Andy/the van once Andy sends work shots. */}
-            <div className="relative space-y-3">
-              {/* Google Reviews card */}
-              {site.social.googleMap && (
-                <a
-                  href={site.social.googleMap}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="block rounded-2xl bg-white p-5 shadow-xl hover:shadow-2xl transition"
-                  style={{ color: NAVY_TO }}
-                >
-                  <div className="flex items-center gap-3">
-                    <GoogleIcon className="h-9 w-9" />
-                    <div className="flex-1">
-                      <div className="text-xs font-black uppercase tracking-widest" style={{ color: NAVY_FROM }}>
-                        Google Reviews
-                      </div>
-                      {site.googleReviews.rating > 0 ? (
-                        <div className="flex items-baseline gap-2">
-                          <span className="text-2xl font-black">
-                            {site.googleReviews.rating}
-                          </span>
-                          <div className="flex" style={{ color: "#FFC107" }}>
-                            {[0, 1, 2, 3, 4].map((i) => (
-                              <StarIcon key={i} className="h-4 w-4" />
-                            ))}
-                          </div>
-                        </div>
-                      ) : (
-                        <div className="flex items-center gap-1" style={{ color: "#FFC107" }}>
-                          {[0, 1, 2, 3, 4].map((i) => (
-                            <StarIcon key={i} className="h-4 w-4" />
-                          ))}
-                          <span className="ml-1 text-sm font-semibold" style={{ color: NAVY_TO }}>
-                            Verified
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                  <div className="mt-3 text-sm font-semibold flex items-center gap-1" style={{ color: NAVY_FROM }}>
-                    Read our reviews on Google →
-                  </div>
-                </a>
-              )}
-
-              {/* 10+ years hero number */}
+            {/* Hero visual — real work photo = instant "mobile ac regas" proof */}
+            <div className="relative">
               <div
-                className="relative rounded-2xl overflow-hidden p-5 text-white shadow-xl"
-                style={{
-                  background: `linear-gradient(135deg, ${NAVY_FROM} 0%, ${NAVY_TO} 100%)`,
-                  boxShadow: `inset 0 0 0 1px ${YELLOW}30, 0 10px 30px rgba(0,0,0,0.25)`,
-                }}
+                className="relative aspect-[4/5] rounded-3xl overflow-hidden border-4 shadow-2xl shadow-black/40"
+                style={{ borderColor: YELLOW }}
               >
-                <div className="absolute -right-4 -bottom-6 opacity-10">
-                  <Snowflake size={140} opacity={1} />
-                </div>
-                <div className="relative flex items-center gap-5">
-                  <div
-                    className="text-5xl md:text-6xl font-black leading-none"
-                    style={{ color: YELLOW }}
-                  >
-                    {site.yearsInBusiness}+
-                  </div>
-                  <div>
-                    <div className="text-sm font-black uppercase tracking-widest">
-                      Years Mechanic
-                    </div>
-                    <div className="text-xs text-blue-100 mt-1 leading-relaxed">
-                      Owner-operated by {site.ownerFirstName}.<br />
-                      Same technician every visit.
-                    </div>
-                  </div>
-                </div>
+                <Image
+                  src="/work-fb/01-ranger-driveway.jpg"
+                  alt="Mobile AC regas on a Ford Ranger in a customer's driveway"
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 80vw, 400px"
+                  className="object-cover"
+                />
               </div>
-
-              {/* ARC credential tile */}
-              <div
-                className="rounded-2xl bg-white p-4 shadow-xl flex items-center gap-4"
-                style={{ color: NAVY_TO, boxShadow: `inset 0 0 0 2px ${YELLOW}` }}
-              >
-                <div
-                  className="h-11 w-11 rounded-full grid place-items-center shrink-0"
-                  style={{ background: YELLOW, color: NAVY_TO }}
-                >
-                  <CertIcon className="h-6 w-6" />
-                </div>
-                <div className="min-w-0">
-                  <div className="text-xs font-black uppercase tracking-widest" style={{ color: NAVY_FROM }}>
-                    ARC RTA Authorised
-                  </div>
-                  <div className="text-base font-black tracking-tight">
-                    {site.arcNumber}
-                  </div>
-                  <div className="text-xs text-slate-600">
-                    Licensed to handle automotive refrigerant.
-                  </div>
-                </div>
-              </div>
-
               {/* Rotated MOBILE SERVICE stamp as a corner accent */}
               <div
-                className="absolute -top-5 -right-3 rotate-[-12deg] pointer-events-none"
+                className="absolute -top-4 -right-4 md:-top-5 md:-right-5 rotate-[-12deg] pointer-events-none"
                 aria-hidden="true"
               >
                 <div
-                  className="relative h-24 w-24 rounded-full grid place-items-center text-center"
+                  className="relative h-24 w-24 md:h-28 md:w-28 rounded-full grid place-items-center text-center"
                   style={{
                     background: YELLOW,
                     boxShadow: `inset 0 0 0 3px ${NAVY_TO}, inset 0 0 0 5px ${YELLOW}, inset 0 0 0 6px ${NAVY_TO}, 0 10px 24px rgba(0,0,0,0.3)`,
@@ -432,7 +337,7 @@ export default function Home() {
                 >
                   <div className="leading-none">
                     <div className="text-[9px] font-black tracking-[0.3em]">★ ★ ★</div>
-                    <div className="mt-1 text-xs font-black uppercase leading-[1.05]">
+                    <div className="mt-1 text-xs md:text-sm font-black uppercase leading-[1.05]">
                       Mobile
                       <br />
                       Service
@@ -451,6 +356,50 @@ export default function Home() {
           className="relative h-3"
           style={{ background: `linear-gradient(90deg, ${YELLOW_LIGHT} 0%, ${YELLOW} 50%, ${YELLOW_DARK} 100%)` }}
         />
+      </section>
+
+      {/* Trust strip — Google rating · Years · ARC · Owner-Operator */}
+      <section className="border-b" style={{ borderColor: `${NAVY_FROM}18`, background: "#fff" }}>
+        <div
+          className="mx-auto max-w-6xl px-6 py-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm"
+          style={{ color: NAVY_TO }}
+        >
+          {site.social.googleMap && (
+            <a
+              href={site.social.googleMap}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 hover:opacity-80 transition"
+            >
+              <GoogleIcon className="h-5 w-5" />
+              <span className="font-black">{site.googleReviews.rating.toFixed(1)}</span>
+              <div className="flex" style={{ color: "#FFC107" }}>
+                {[0, 1, 2, 3, 4].map((i) => (
+                  <StarIcon key={i} className="h-3.5 w-3.5" />
+                ))}
+              </div>
+              <span className="opacity-60 hidden sm:inline">on Google</span>
+            </a>
+          )}
+          <div className="flex items-center gap-2">
+            <span className="font-black uppercase tracking-wider">
+              {site.yearsInBusiness}+ Years
+            </span>
+            <span className="opacity-60 hidden sm:inline">under the bonnet</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span style={{ color: NAVY_FROM }}>
+              <CertIcon className="h-4 w-4" />
+            </span>
+            <span className="font-black uppercase tracking-wider">
+              ARC RTA No. {site.arcNumber}
+            </span>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="font-black uppercase tracking-wider">Owner-Operated</span>
+            <span className="opacity-60 hidden sm:inline">— Andy himself</span>
+          </div>
+        </div>
       </section>
 
       {/* How it works — 3-step mobile flow */}
