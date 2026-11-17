@@ -38,12 +38,12 @@ export const metadata: Metadata = {
     locale: "en_AU",
     url: SITE_URL,
     siteName: site.longName,
-    title: `${site.longName} — Cold air back, on-site in 45 minutes`,
+    title: `${site.longName} — Mobile AC Regas · Brisbane · Gold Coast · from $140`,
     description: DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${site.longName} — Mobile AC Regas`,
+    title: `${site.longName} — Mobile AC Regas · Brisbane · Gold Coast · from $140`,
     description: DESCRIPTION,
   },
   robots: {
