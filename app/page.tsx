@@ -563,35 +563,68 @@ export default function Home() {
         <div className="absolute -top-6 -right-6" style={{ color: NAVY_FROM }}>
           <Snowflake size={160} opacity={0.05} />
         </div>
-        <div className="mx-auto max-w-6xl px-6 py-16 grid md:grid-cols-5 gap-10 items-start">
-          <div className="md:col-span-3">
-            <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
-              About Andy
+        <div className="mx-auto max-w-6xl px-6 py-16">
+          <div className="grid md:grid-cols-2 gap-10 items-center">
+            {/* Portrait — Andy + Audi Allroad service wagon */}
+            <div className="relative">
+              <div
+                className="relative aspect-[4/3] md:aspect-[5/4] rounded-2xl overflow-hidden border-2 shadow-xl"
+                style={{ borderColor: `${NAVY_FROM}22` }}
+              >
+                <Image
+                  src="/brand/andy-wagon.jpg"
+                  alt="Andy next to his Audi Allroad service wagon with MOBILE AC SERVICE decal"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  className="object-cover"
+                />
+              </div>
+              {/* Rotated "That's Andy" badge over the photo */}
+              <div
+                className="absolute -top-3 -right-3 rotate-[-10deg]"
+                aria-hidden="true"
+              >
+                <div
+                  className="rounded-full px-4 py-2 text-xs font-black uppercase tracking-[0.25em] shadow-lg"
+                  style={{ background: YELLOW, color: NAVY_TO }}
+                >
+                  ★ That&apos;s Andy
+                </div>
+              </div>
             </div>
-            <h2 className="mt-2 text-3xl md:text-4xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-              {site.ownerBio.headline}
-            </h2>
-            <div
-              className="mt-2 text-lg md:text-xl font-black uppercase tracking-tight"
-              style={{ color: NAVY_FROM }}
-            >
-              {site.ownerBio.subhead}
+
+            {/* Right text column */}
+            <div>
+              <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
+                About Andy
+              </div>
+              <h2 className="mt-2 text-3xl md:text-4xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+                {site.ownerBio.headline}
+              </h2>
+              <div
+                className="mt-2 text-lg md:text-xl font-black uppercase tracking-tight"
+                style={{ color: NAVY_FROM }}
+              >
+                {site.ownerBio.subhead}
+              </div>
+              <div className="mt-5 space-y-4 text-slate-700 leading-relaxed">
+                {site.ownerBio.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </div>
+              <a
+                href={telHref}
+                className="mt-6 inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-black text-[#013A69] hover:brightness-105 transition"
+                style={{ background: YELLOW }}
+              >
+                <PhoneIcon className="h-4 w-4" />
+                Book direct with Andy
+              </a>
             </div>
-            <div className="mt-5 space-y-4 text-slate-700 leading-relaxed">
-              {site.ownerBio.paragraphs.map((p, i) => (
-                <p key={i}>{p}</p>
-              ))}
-            </div>
-            <a
-              href={telHref}
-              className="mt-6 inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-black text-[#013A69] hover:brightness-105 transition"
-              style={{ background: YELLOW }}
-            >
-              <PhoneIcon className="h-4 w-4" />
-              Book direct with Andy
-            </a>
           </div>
-          <div className="md:col-span-2 grid grid-cols-2 gap-3">
+
+          {/* Pillars — full-width 4-card strip under the two-col block */}
+          <div className="mt-10 grid grid-cols-2 md:grid-cols-4 gap-3">
             {site.ownerBio.pillars.map((p) => (
               <div
                 key={p.title}
