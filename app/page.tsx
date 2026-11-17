@@ -171,12 +171,12 @@ const socialLinks = [
 // Photos curated 2026-11-16 from Andy's FB work-log posts + 1 Google video
 // still. Files in public/work-fb/ (FB) and public/work/ (Google). Replace or
 // re-order freely — just drop new files into public/work-fb/.
-const workGallery: { src: string; label: string; video?: boolean }[] = [
+const workGallery: { src: string; label: string; video?: boolean; focal?: string }[] = [
   { src: "/work/andy-voiceover.mp4", label: "Watch Andy's 30-second mobile AC regas", video: true },
   { src: "/work-fb/12-full-kit-boot.jpg", label: "The mobile kit — gauges, vacuum, R134a" },
   { src: "/work-fb/15-crv-logan-driveway.jpg", label: "On the driveway · Logan" },
   { src: "/work-fb/01-ranger-driveway.jpg", label: "Ford Ranger · driveway" },
-  { src: "/work-fb/13-red-car-cylinder.jpg", label: "Refill in progress" },
+  { src: "/work-fb/13-red-car-cylinder.jpg", label: "Refill in progress", focal: "top" },
   { src: "/work-fb/02-commodore.jpg", label: "Holden Commodore" },
   { src: "/work-fb/14-camry-street.jpg", label: "Toyota Camry · street-side" },
   { src: "/work-fb/03-temp-5c.jpg", label: "Vent temp · 5.0°C" },
@@ -767,6 +767,7 @@ export default function Home() {
                   fill
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover transition group-hover:scale-[1.03]"
+                  style={item.focal ? { objectPosition: item.focal } : undefined}
                 />
                 <figcaption
                   className="absolute inset-x-0 bottom-0 p-3 text-[11px] font-black uppercase tracking-widest text-white pointer-events-none"
