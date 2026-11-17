@@ -334,7 +334,7 @@ export default function Home() {
                       <div className="text-xs font-black uppercase tracking-widest" style={{ color: NAVY_FROM }}>
                         Google Reviews
                       </div>
-                      {site.googleReviews.count > 0 ? (
+                      {site.googleReviews.rating > 0 ? (
                         <div className="flex items-baseline gap-2">
                           <span className="text-2xl font-black">
                             {site.googleReviews.rating}
@@ -344,9 +344,6 @@ export default function Home() {
                               <StarIcon key={i} className="h-4 w-4" />
                             ))}
                           </div>
-                          <span className="text-sm opacity-70">
-                            ({site.googleReviews.count})
-                          </span>
                         </div>
                       ) : (
                         <div className="flex items-center gap-1" style={{ color: "#FFC107" }}>
@@ -672,7 +669,7 @@ export default function Home() {
               style={{ borderColor: `${NAVY_FROM}22`, color: NAVY_TO }}
             >
               <GoogleIcon className="h-5 w-5" />
-              Read all {site.googleReviews.count} reviews
+              Read all Google reviews
               <span>→</span>
             </a>
           )}
