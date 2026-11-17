@@ -737,17 +737,17 @@ export default function Home() {
             item.video ? (
               <figure
                 key={item.src}
-                className="relative col-span-2 aspect-video rounded-2xl overflow-hidden border-2 bg-black"
+                className="relative row-span-2 aspect-[9/16] rounded-2xl overflow-hidden border-2 bg-black"
                 style={{ borderColor: YELLOW }}
               >
                 <video
                   src={item.src}
                   poster="/work/andy-voiceover-poster.jpg"
                   controls
-                  preload="metadata"
+                  preload="none"
                   playsInline
                   aria-label={item.label}
-                  className="absolute inset-0 h-full w-full object-cover"
+                  className="absolute inset-0 h-full w-full object-contain"
                 />
               </figure>
             ) : (
@@ -763,6 +763,15 @@ export default function Home() {
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   className="object-cover transition group-hover:scale-[1.03]"
                 />
+                <figcaption
+                  className="absolute inset-x-0 bottom-0 p-3 text-[11px] font-black uppercase tracking-widest text-white pointer-events-none"
+                  style={{
+                    background:
+                      "linear-gradient(to top, rgba(1,58,105,0.85) 0%, rgba(1,58,105,0) 100%)",
+                  }}
+                >
+                  {item.label}
+                </figcaption>
               </figure>
             )
           )}
