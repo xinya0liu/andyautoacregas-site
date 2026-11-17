@@ -308,8 +308,8 @@ export default function Home() {
                 style={{ borderColor: YELLOW }}
               >
                 <Image
-                  src="/work-fb/01-ranger-driveway.jpg"
-                  alt="Mobile AC regas on a Ford Ranger in a customer's driveway"
+                  src="/work-fb/hero-andy-working.jpg"
+                  alt="Andy on-site with manifold gauges, R134a tank and mobile AC kit at a customer's driveway"
                   fill
                   priority
                   sizes="(max-width: 768px) 80vw, 400px"
