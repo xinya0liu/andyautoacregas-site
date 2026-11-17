@@ -42,10 +42,10 @@ export const site = {
     "Hi Andy, I'd like a quote for my [car make/model/year] in [suburb]. What's your next available?",
   // Owner background — "About Andy" section.
   ownerBio: {
-    headline: "Meet Andy.",
+    headline: "Hi, I'm Andy.",
     subhead: "Audi-certified diagnostic technician. 10+ years under the bonnet.",
     paragraphs: [
-      "Hi, I'm Andy. I spent most of my career at Audi dealerships as a certified diagnostic technician — the gold standard for precision diagnostics and electrical work.",
+      "I spent most of my career at Audi dealerships as a certified diagnostic technician — the gold standard for precision diagnostics and electrical work.",
       "Two years ago I went out on my own. Now I bring dealership-level tools and experience to your driveway — same expertise, mobile schedule.",
       "I'm the owner and I'm the operator. No rent, no front desk, no sales commission — the same person who answers the phone is the one fixing your car. That keeps overhead low, and the savings go to you.",
       "My goal is simple: fix your car properly and tell you exactly what it needs. Nothing more.",
