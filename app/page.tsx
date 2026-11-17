@@ -285,18 +285,51 @@ export default function Home() {
                 </a>
               )}
             </div>
-            <div className="mt-10 grid grid-cols-3 gap-6 max-w-lg">
-              <div>
-                <div className="text-3xl md:text-4xl font-black" style={{ color: YELLOW }}>$140</div>
-                <div className="text-xs uppercase tracking-widest text-blue-200 mt-1">Regas from</div>
+            <div
+              className="mt-10 grid grid-cols-3 max-w-lg rounded-2xl border overflow-hidden"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                borderColor: "rgba(255,255,255,0.12)",
+              }}
+            >
+              <div
+                className="px-4 py-4 text-center border-r"
+                style={{ borderColor: "rgba(255,255,255,0.12)" }}
+              >
+                <div className="text-[10px] font-black uppercase tracking-[0.25em] text-blue-200/80">
+                  Regas from
+                </div>
+                <div
+                  className="mt-1 text-2xl md:text-3xl font-black"
+                  style={{ color: YELLOW }}
+                >
+                  $140
+                </div>
               </div>
-              <div>
-                <div className="text-3xl md:text-4xl font-black" style={{ color: YELLOW }}>45m</div>
-                <div className="text-xs uppercase tracking-widest text-blue-200 mt-1">Typical job</div>
+              <div
+                className="px-4 py-4 text-center border-r"
+                style={{ borderColor: "rgba(255,255,255,0.12)" }}
+              >
+                <div className="text-[10px] font-black uppercase tracking-[0.25em] text-blue-200/80">
+                  Typical job
+                </div>
+                <div
+                  className="mt-1 text-2xl md:text-3xl font-black"
+                  style={{ color: YELLOW }}
+                >
+                  45 min
+                </div>
               </div>
-              <div>
-                <div className="text-3xl md:text-4xl font-black" style={{ color: YELLOW }}>7/7</div>
-                <div className="text-xs uppercase tracking-widest text-blue-200 mt-1">Days open</div>
+              <div className="px-4 py-4 text-center">
+                <div className="text-[10px] font-black uppercase tracking-[0.25em] text-blue-200/80">
+                  Open
+                </div>
+                <div
+                  className="mt-1 text-2xl md:text-3xl font-black"
+                  style={{ color: YELLOW }}
+                >
+                  7 Days
+                </div>
               </div>
             </div>
           </div>
