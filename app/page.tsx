@@ -172,13 +172,13 @@ const socialLinks = [
 // still. Files in public/work-fb/ (FB) and public/work/ (Google). Replace or
 // re-order freely — just drop new files into public/work-fb/.
 const workGallery: { src: string; label: string; video?: boolean }[] = [
+  { src: "/work/andy-voiceover.mp4", label: "Watch Andy's 30-second mobile AC regas", video: true },
   { src: "/work-fb/01-ranger-driveway.jpg", label: "Ford Ranger · driveway" },
   { src: "/work-fb/02-commodore.jpg", label: "Holden Commodore" },
   { src: "/work-fb/03-temp-5c.jpg", label: "Vent temp · 5.0°C" },
   { src: "/work-fb/04-mazda-clean.jpg", label: "Mazda CX-5" },
   { src: "/work-fb/05-mercedes.jpg", label: "Mercedes-Benz" },
   { src: "/work-fb/06-ford-van.jpg", label: "Ford van" },
-  { src: "/work/andy-voiceover.mp4", label: "Watch Andy's 30-second mobile AC regas", video: true },
   { src: "/work-fb/07-hilux-driveway.jpg", label: "Toyota Hilux · driveway" },
   { src: "/work-fb/08-temp-7c-kia.jpg", label: "Vent temp · 7.6°C" },
   { src: "/work-fb/09-vw-driveway.jpg", label: "VW · driveway" },
