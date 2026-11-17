@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# taste-skill (install locally via `npx skills add Leonxlnx/taste-skill`)
+.agents/
+.claude/
+skills-lock.json
