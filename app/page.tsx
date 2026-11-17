@@ -178,7 +178,7 @@ const workGallery: { src: string; label: string; video?: boolean }[] = [
   { src: "/work-fb/04-mazda-clean.jpg", label: "Mazda CX-5" },
   { src: "/work-fb/05-mercedes.jpg", label: "Mercedes-Benz" },
   { src: "/work-fb/06-ford-van.jpg", label: "Ford van" },
-  { src: "/work/video-poster.jpg", label: "Watch the 23-second job on Google", video: true },
+  { src: "/work/andy-voiceover.mp4", label: "Watch Andy's 30-second mobile AC regas", video: true },
   { src: "/work-fb/07-hilux-driveway.jpg", label: "Toyota Hilux · driveway" },
   { src: "/work-fb/08-temp-7c-kia.jpg", label: "Vent temp · 7.6°C" },
   { src: "/work-fb/09-vw-driveway.jpg", label: "VW · driveway" },
@@ -272,19 +272,19 @@ export default function Home() {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={telHref}
+                href={smsQuoteHref}
                 className="inline-flex items-center gap-2 rounded-full px-6 py-3.5 font-black text-[#013A69] shadow-lg hover:brightness-105 transition"
                 style={{ background: YELLOW }}
               >
-                <PhoneIcon className="h-5 w-5" />
-                <span>Call <span className="italic">{site.phone}</span></span>
+                <ChatIcon className="h-5 w-5" />
+                Text for a quote
               </a>
               <a
-                href={smsQuoteHref}
+                href={telHref}
                 className="inline-flex items-center gap-2 rounded-full border-2 border-white/40 px-6 py-3 font-bold hover:bg-white/10 transition"
               >
-                <ChatIcon className="h-5 w-5" />
-                Quick SMS Quote
+                <PhoneIcon className="h-5 w-5" />
+                <span>Call <span className="italic">{site.phone}</span></span>
               </a>
               {(hasMessenger || hasFb) && (
                 <a
@@ -298,6 +298,10 @@ export default function Home() {
                 </a>
               )}
             </div>
+            <p className="mt-3 text-xs text-blue-200/80">
+              Text or FB: include your car make/model and suburb — Andy comes
+              back with a time and a price.
+            </p>
             <div
               className="mt-10 grid grid-cols-3 max-w-lg rounded-2xl border overflow-hidden"
               style={{
@@ -731,31 +735,21 @@ export default function Home() {
         <div className="mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
           {workGallery.map((item) =>
             item.video ? (
-              <a
+              <figure
                 key={item.src}
-                href={site.social.googleMap || "#"}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={item.label}
-                className="group relative col-span-2 aspect-video rounded-2xl overflow-hidden border-2 block"
+                className="relative col-span-2 aspect-video rounded-2xl overflow-hidden border-2 bg-black"
                 style={{ borderColor: YELLOW }}
               >
-                <Image
+                <video
                   src={item.src}
-                  alt={item.label}
-                  fill
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition group-hover:scale-[1.03]"
+                  poster="/work/andy-voiceover-poster.jpg"
+                  controls
+                  preload="metadata"
+                  playsInline
+                  aria-label={item.label}
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
-                <div className="absolute inset-0 grid place-items-center bg-black/25">
-                  <div
-                    className="h-16 w-16 md:h-20 md:w-20 rounded-full grid place-items-center shadow-xl transition group-hover:scale-105"
-                    style={{ background: YELLOW, color: NAVY_TO }}
-                  >
-                    <PlayIcon className="h-7 w-7 md:h-9 md:w-9 ml-1" />
-                  </div>
-                </div>
-              </a>
+              </figure>
             ) : (
               <figure
                 key={item.src}
@@ -900,14 +894,22 @@ export default function Home() {
               Call Andy.
             </h2>
             <p className="mt-4 opacity-80 max-w-md">
-              Call Andy — you&apos;ll get a time window and a price before the
-              wagon rolls out.
+              Text Andy with your car and suburb — you&apos;ll get a time
+              window and a price before the wagon rolls out.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
-                href={telHref}
+                href={smsQuoteHref}
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-black text-white shadow-lg hover:brightness-110 transition"
                 style={{ background: `linear-gradient(90deg, ${NAVY_FROM} 0%, ${NAVY_TO} 100%)` }}
+              >
+                <ChatIcon className="h-5 w-5" />
+                Text for a quote
+              </a>
+              <a
+                href={telHref}
+                className="inline-flex items-center gap-2 rounded-full border-2 px-6 py-3 font-black hover:bg-black/5 transition"
+                style={{ borderColor: NAVY_TO, color: NAVY_TO }}
               >
                 <PhoneIcon className="h-5 w-5" />
                 <span>Call <span className="italic">{site.phone}</span></span>

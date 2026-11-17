@@ -60,7 +60,7 @@ export const site = {
     },
   ],
   smsQuoteTemplate:
-    "Hi Andy, I'd like a quote for my [car make/model/year] in [suburb]. What's your next available?",
+    "Hi Andy, I'd like a quote for my [car make/model/year] in [suburb]. What's your earliest available slot?",
   // Owner background — "About Andy" section.
   ownerBio: {
     headline: "Hi, I'm Andy.",
