@@ -245,7 +245,7 @@ export default function Home() {
               style={{ background: YELLOW }}
             >
               <span className="h-1.5 w-1.5 rounded-full bg-[#013A69]" />
-              Mobile Service · Open 7 Days · ARC RTA AU63933
+              Mobile Service · ARC RTA AU63933
             </div>
             <h1 className="mt-5 text-4xl md:text-6xl font-black tracking-tight leading-[1.02] uppercase">
               Mobile Car
@@ -256,7 +256,7 @@ export default function Home() {
               className="mt-4 text-xl md:text-2xl font-black uppercase tracking-tight"
               style={{ color: YELLOW }}
             >
-              Across Brisbane, Gold Coast, Logan &amp; more.
+              Across Brisbane, Gold Coast and Logan.
             </div>
             <p className="mt-5 text-lg text-blue-100 max-w-xl leading-relaxed">
               Fully mobile car AC regas, diagnostics and repair — we come to
@@ -446,7 +446,7 @@ export default function Home() {
               How It Works
             </div>
             <h2 className="mt-2 text-2xl md:text-3xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-              Three steps. Cold air today.
+              Three steps from call to cold air.
             </h2>
           </div>
           <div className="mt-10 grid md:grid-cols-[1fr_auto_1fr_auto_1fr] gap-6 md:gap-4 items-stretch">
@@ -610,14 +610,11 @@ export default function Home() {
                 className="rounded-2xl bg-white border-2 p-4"
                 style={{ borderColor: `${NAVY_FROM}22` }}
               >
-                <div className="flex items-center gap-2" style={{ color: NAVY_FROM }}>
-                  <CertIcon className="h-4 w-4" />
-                  <span className="text-[10px] font-black uppercase tracking-[0.25em]">
-                    Pillar
-                  </span>
+                <div style={{ color: NAVY_FROM }}>
+                  <CertIcon className="h-5 w-5" />
                 </div>
                 <div
-                  className="mt-2 text-base font-black uppercase tracking-tight"
+                  className="mt-3 text-base font-black uppercase tracking-tight"
                   style={{ color: NAVY_TO }}
                 >
                   {p.title}
@@ -625,6 +622,24 @@ export default function Home() {
                 <div className="mt-1 text-xs text-slate-600 leading-relaxed">
                   {p.body}
                 </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Credentials — merged in as the section's tail (taste: no strip sections) */}
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs md:text-sm">
+            {site.credentials.map((c) => (
+              <div
+                key={c.title}
+                className="inline-flex items-center gap-2 rounded-full bg-white border px-3 py-1.5"
+                style={{ borderColor: `${NAVY_FROM}22`, color: NAVY_TO }}
+                title={c.body}
+              >
+                <span style={{ color: NAVY_FROM, display: "inline-flex" }}>
+                  <CertIcon className="h-3.5 w-3.5" />
+                </span>
+                <span className="font-black uppercase tracking-wider">{c.title}</span>
+                <span className="opacity-60 text-[11px]">· {c.detail}</span>
               </div>
             ))}
           </div>
@@ -737,17 +752,8 @@ export default function Home() {
                 alt={item.label}
                 fill
                 sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                className="object-cover transition group-hover:scale-105"
+                className="object-cover transition group-hover:scale-[1.03]"
               />
-              <figcaption
-                className="absolute inset-x-0 bottom-0 p-3 text-[11px] font-black uppercase tracking-widest text-white"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(1,58,105,0.9) 0%, rgba(1,58,105,0) 100%)",
-                }}
-              >
-                {item.label}
-              </figcaption>
             </figure>
           ))}
         </div>
@@ -802,38 +808,6 @@ export default function Home() {
               </a>
             </article>
           ))}
-        </div>
-      </section>
-
-      {/* Credentials — compact strip (ARC already in top bar) */}
-      <section style={{ background: `${NAVY_FROM}08` }}>
-        <div className="mx-auto max-w-6xl px-6 py-10">
-          <div className="flex items-center justify-between flex-wrap gap-6">
-            <div>
-              <div className="text-xs uppercase tracking-[0.3em] font-black" style={{ color: NAVY_FROM }}>
-                Licensed &amp; Certified
-              </div>
-              <div className="mt-1 text-lg md:text-xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-                ARC RTA authorised. Fully compliant.
-              </div>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {site.credentials.map((c) => (
-                <div
-                  key={c.title}
-                  className="inline-flex items-center gap-2 rounded-full bg-white border-2 px-4 py-2 text-xs md:text-sm"
-                  style={{ borderColor: `${NAVY_FROM}22`, color: NAVY_TO }}
-                  title={c.body}
-                >
-                  <span style={{ color: NAVY_FROM, display: "inline-flex" }}>
-                    <CertIcon className="h-4 w-4" />
-                  </span>
-                  <span className="font-black uppercase tracking-wider">{c.title}</span>
-                  <span className="text-[11px] opacity-70">· {c.detail}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
@@ -925,7 +899,7 @@ export default function Home() {
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight leading-[1.05]">
               AC acting up?
               <br />
-              Let&apos;s book in today.
+              Call Andy.
             </h2>
             <p className="mt-4 opacity-80 max-w-md">
               Call Andy — you&apos;ll get a time window and a price before the
