@@ -491,11 +491,12 @@ export default function Home() {
               </h3>
               <p className="mt-3 text-slate-600 leading-relaxed">{s.blurb}</p>
               <a
-                href={telHref}
-                className="mt-5 inline-flex items-center gap-1 font-black hover:gap-2 transition-all"
+                href={smsQuoteHref}
+                className="mt-5 inline-flex items-center gap-2 font-black hover:gap-3 transition-all"
                 style={{ color: NAVY_FROM }}
               >
-                Book this → <span className="italic">{site.phone}</span>
+                <ChatIcon className="h-4 w-4" />
+                Text to book · <span className="italic">{site.phone}</span>
               </a>
             </article>
           ))}
