@@ -477,19 +477,19 @@ export default function Home() {
           {site.services.map((s) => (
             <article
               key={s.slug}
-              className="relative rounded-2xl p-7 border-2 transition hover:-translate-y-1 hover:shadow-xl"
+              className="relative rounded-2xl p-7 border-2 flex flex-col transition hover:-translate-y-1 hover:shadow-xl"
               style={{ borderColor: `${NAVY_FROM}18` }}
             >
+              <h3 className="text-xl md:text-2xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
+                {s.name}
+              </h3>
               <div
-                className="absolute -top-3 left-6 inline-block rounded-full px-3 py-1 text-xs font-black text-[#013A69]"
-                style={{ background: YELLOW }}
+                className="mt-2 text-3xl md:text-4xl font-black tracking-tight"
+                style={{ color: NAVY_FROM }}
               >
                 {s.price}
               </div>
-              <h3 className="mt-4 text-2xl font-black uppercase tracking-tight" style={{ color: NAVY_TO }}>
-                {s.name}
-              </h3>
-              <p className="mt-3 text-slate-600 leading-relaxed">{s.blurb}</p>
+              <p className="mt-3 text-slate-600 leading-relaxed flex-1">{s.blurb}</p>
               <a
                 href={smsQuoteHref}
                 className="mt-5 inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 text-sm font-black text-[#013A69] shadow-md hover:brightness-105 hover:shadow-lg transition w-full"
